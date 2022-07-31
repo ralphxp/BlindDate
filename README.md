@@ -1,2 +1,0 @@
-# BlindDate
-An Dating App
