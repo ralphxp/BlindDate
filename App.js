@@ -1,15 +1,33 @@
+import React from "react";
 import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
-import tw from "tailwind-react-native-classnames";
-import Header from "./components/Header/Header";
+import { StyleSheet, Text, View } from "react-native";
+import { TailwindProvider } from "tailwindcss-react-native";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import HomeScreen from "./screens/HomeScreen";
+import Welcome from "./screens/Welcome";
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <View style={tw`bg-white flex items-center justify-center h-full`}>
-      <Header />
-      <Text>Main</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <TailwindProvider>
+        <Stack.Navigator>
+          <Stack.Screen
+            name="Home"
+            component={HomeScreen}
+            options={{ headerShown: false }}
+          />
+
+          <Stack.Screen
+            name="Welcome"
+            component={Welcome}
+            options={{ headerShown: false }}
+          />
+        </Stack.Navigator>
+      </TailwindProvider>
+    </NavigationContainer>
   );
 };
 
