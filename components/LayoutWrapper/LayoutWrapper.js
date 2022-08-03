@@ -16,6 +16,7 @@ const LayoutWrapper = ({ children }) => {
         focusable="false"
         aria-hidden="true"
         role="presentation"
+        id={Math.random()}
       >
         <Defs>
           <RadialGradient

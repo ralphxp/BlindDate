@@ -6,6 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
 import Welcome from "./screens/Welcome";
+import Outh from "./screens/Outh";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,6 +24,12 @@ const App = () => {
           <Stack.Screen
             name="Welcome"
             component={Welcome}
+            options={{ headerShown: false }}
+          />
+
+          <Stack.Screen
+            name="Outh"
+            component={Outh}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

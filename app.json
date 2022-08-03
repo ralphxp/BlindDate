@@ -6,11 +6,6 @@
     "orientation": "portrait",
     "icon": "./assets/images/blinddate_orange_single.png",
     "userInterfaceStyle": "light",
-    "splash": {
-      "image": "./assets/images/blinddate_orange.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
     "updates": {
       "fallbackToCacheTimeout": 0
     },
