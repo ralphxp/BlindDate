@@ -5,8 +5,9 @@ import { TailwindProvider } from "tailwindcss-react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import HomeScreen from "./screens/HomeScreen";
-import Welcome from "./screens/Welcome";
+import StepForm from "./screens/StepForm";
 import Outh from "./screens/Outh";
+import Dashboard from "./screens/Dashboard";
 
 const Stack = createNativeStackNavigator();
 
@@ -22,14 +23,20 @@ const App = () => {
           />
 
           <Stack.Screen
-            name="Welcome"
-            component={Welcome}
+            name="StepForm"
+            component={StepForm}
             options={{ headerShown: false }}
           />
 
           <Stack.Screen
             name="Outh"
             component={Outh}
+            options={{ headerShown: false }}
+          />
+
+          <Stack.Screen
+            name="Dashboard"
+            component={Dashboard}
             options={{ headerShown: false }}
           />
         </Stack.Navigator>

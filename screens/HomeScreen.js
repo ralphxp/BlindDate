@@ -3,37 +3,41 @@ import { View, Image } from "react-native";
 import { Bell } from "phosphor-react-native";
 import Svg, { Circle } from "react-native-svg";
 import LayoutWrapper from "../components/LayoutWrapper/LayoutWrapper";
-import { getData } from "../lib/storageData";
-
-let account;
+import { getAuth, onAuthStateChanged } from "firebase/auth";
+import firebase from "firebase/compat/app";
+import { initializeApp } from "firebase/app";
+import { firebaseConfig } from "../firebase";
 
 const HomeScreen = ({ navigation }) => {
-  const [userId, setUserId] = useState("test");
-
-  const fetchUser = useCallback(async () => {
-    let response = await getData("@firebase_uid");
-    setUserId(response);
-  }, []);
+  /* const [loading, setLoading] = useState(true);
+  const [authenticated, setAuthenticated] = useState(true); */
+  console.log(firebaseConfig);
+  const app = firebase.initializeApp(firebaseConfig);
 
   useEffect(() => {
-    fetchUser();
-    console.log("test", userId);
+    const auth = getAuth(app);
+    console.log("Auth: ", auth);
     setTimeout(() => {
-      navigation.navigate("Outh");
-    }, 5000);
-  }),
-    [fetchUser];
+      onAuthStateChanged(auth, (user) => {
+        if (user != null) {
+          console.log("USER:", user);
+          /* navigation.navigate("Dashboard"); */
+          navigation.navigate("StepForm");
+        } else {
+          navigation.navigate("Outh");
+        }
+      });
+    }, 1000);
+  }, []);
 
   return (
     <LayoutWrapper>
-      {!account && (
-        <View className="flex flex-col items-center">
-          <Image
-            source={require("../assets/images/blinddate_white_single.png")}
-            className="w-[225px] h-[225px]"
-          />
-        </View>
-      )}
+      <View className="flex flex-col items-center">
+        <Image
+          source={require("../assets/images/blinddate_white_single.png")}
+          className="w-[225px] h-[225px]"
+        />
+      </View>
     </LayoutWrapper>
   );
 };
