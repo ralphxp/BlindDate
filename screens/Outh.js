@@ -41,7 +41,7 @@ const Outh = ({ navigation }) => {
   const [isVerified, setIsVerified] = useState(false);
   const [showPhoneButton, setShowPhoneButton] = useState(false);
 
-  const [phoneNumber, setPhoneNumber] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("+49");
   const [code, setCode] = useState("");
   const [verificationId, setVerificationId] = useState(null);
   const recaptchaVerifier = useRef(null);
@@ -66,7 +66,6 @@ const Outh = ({ navigation }) => {
         console.log("Credential Result", result.user.uid);
         setCode("");
         setIsVerified(true);
-        Alert.alert("Du wurdest erfolgreich eingelogged");
         navigation.navigate("StepForm");
       })
       .catch((error) => {
@@ -97,22 +96,19 @@ const Outh = ({ navigation }) => {
             Deine Telefonnummer
           </Text>
 
-          <TouchableWithoutFeedback
-            onPress={Keyboard.dismiss}
-            accessible={false}
-          >
-            <TextInput
-              onFocus={setShowPhoneButton}
-              onBlur={setShowPhoneButton}
-              onChangeText={setPhoneNumber}
-              placeholder="+49"
-              placeholderTextColor="#fff"
-              keyboardType="phone-pad"
-              autoCompleteType="tel"
-              style={{ fontFamily: "Rubik_400Regular" }}
-              className="mt-[45px] px-[5px] text-[30px] text-white bg-transparent focus:outline-none border-none border-b-2 border-b-white w-[60%] placeholder-red-300"
-            />
-          </TouchableWithoutFeedback>
+          <TextInput
+            onFocus={setShowPhoneButton}
+            onBlur={setShowPhoneButton}
+            onChangeText={setPhoneNumber}
+            placeholder="+49"
+            defaultValue="+49"
+            placeholderTextColor="#fff"
+            keyboardType="phone-pad"
+            autoCompleteType="tel"
+            style={{ fontFamily: "Rubik_400Regular" }}
+            className="mt-[45px] px-[5px] text-[30px] text-white bg-transparent focus:outline-none border-none border-b-2 border-b-white w-[60%] placeholder-red-300"
+          />
+
           {showPhoneButton && (
             <TouchableOpacity
               onPress={sendVerification}

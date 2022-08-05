@@ -12,11 +12,10 @@ const LayoutWrapper = ({ children }) => {
   return (
     <View className="relative flex justify-center items-center w-full h-full">
       <Svg
-        className="absolute left-0 w-full h-full"
+        className="absolute left-0 top-0 w-full h-full"
         focusable="false"
         aria-hidden="true"
         role="presentation"
-        id={Math.random()}
       >
         <Defs>
           <RadialGradient

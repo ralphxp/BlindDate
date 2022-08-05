@@ -7,15 +7,21 @@ import { getAuth, onAuthStateChanged } from "firebase/auth";
 import firebase from "firebase/compat/app";
 import { initializeApp } from "firebase/app";
 import { firebaseConfig } from "../firebase";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import {
+  initializeAuth,
+  getReactNativePersistence,
+} from "firebase/auth/react-native";
 
 const HomeScreen = ({ navigation }) => {
-  /* const [loading, setLoading] = useState(true);
-  const [authenticated, setAuthenticated] = useState(true); */
   console.log(firebaseConfig);
   const app = firebase.initializeApp(firebaseConfig);
 
   useEffect(() => {
-    const auth = getAuth(app);
+    const auth = initializeAuth(app, {
+      persistence: getReactNativePersistence(AsyncStorage),
+    });
+    /* const auth = getAuth(app); */
     console.log("Auth: ", auth);
     setTimeout(() => {
       onAuthStateChanged(auth, (user) => {
