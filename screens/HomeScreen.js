@@ -21,7 +21,6 @@ const HomeScreen = ({ navigation }) => {
     const auth = initializeAuth(app, {
       persistence: getReactNativePersistence(AsyncStorage),
     });
-    /* const auth = getAuth(app); */
     console.log("Auth: ", auth);
     setTimeout(() => {
       onAuthStateChanged(auth, (user) => {
@@ -38,7 +37,7 @@ const HomeScreen = ({ navigation }) => {
 
   return (
     <LayoutWrapper>
-      <View className="flex flex-col items-center">
+      <View className="flex flex-col items-center justify-center w-full h-full">
         <Image
           source={require("../assets/images/blinddate_white_single.png")}
           className="w-[225px] h-[225px]"

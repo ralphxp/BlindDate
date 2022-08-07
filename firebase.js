@@ -1,4 +1,5 @@
 import firebase from "firebase/compat/app";
+import { getApp, getApps, initializeApp } from "firebase/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 
@@ -12,4 +13,4 @@ export const firebaseConfig = {
   measurementId: "G-E18HDL5ZWS",
 };
 
-firebase.initializeApp(firebaseConfig);
+!getApps().length ? initializeApp(firebaseConfig) : getApp();
