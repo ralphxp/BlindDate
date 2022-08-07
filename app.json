@@ -15,7 +15,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/images/blinddate_orange.png",
+        "foregroundImage": "./assets/images/blinddate_orange_single.png",
         "backgroundColor": "#FFFFFF"
       },
       "package": "app.BlindDate",
