@@ -18,10 +18,11 @@ Now you are good to go ;)
 
 ## Used Tools
 
-> Firebase<br>React-Native<br>
+> Firebase<br>React-Native<br>TailwindCSS<br>Phosphor Icons<br>Expo
 
 <br>
 
-## To Fix
+## To Do
 
-Hot reload error (auth/already-initialized)
+- Hot reload error (auth/already-initialized)
+- Finish click line
