@@ -16,6 +16,16 @@ Now you are good to go ;)
 
 <br>
 
+## How to build
+
+Build a APK to Test
+
+```npm
+expo build:android -t apk
+```
+
+<br>
+
 ## Used Tools
 
 > Firebase<br>React-Native<br>TailwindCSS<br>Phosphor Icons<br>Expo
