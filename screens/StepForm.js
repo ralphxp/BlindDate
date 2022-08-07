@@ -1,6 +1,7 @@
 import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
 import React, { useState, useRef } from "react";
 import LayoutWrapper from "../components/LayoutWrapper/LayoutWrapper";
+import { CaretDown, CaretUp } from "phosphor-react-native";
 import { Picker } from "@react-native-picker/picker";
 import {
   useFonts,
@@ -29,11 +30,11 @@ const StepForm = () => {
   const [selectedGender, setSelectedGender] = useState();
 
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState(null);
+  const [value, setValue] = useState("weiblich");
   const [items, setItems] = useState([
     { label: "weiblich", value: "weiblich" },
     { label: "männlich", value: "männlich" },
-    { label: "diverse", value: "diverse" },
+    { label: "divers", value: "divers" },
   ]);
 
   const changeStep = () => {
@@ -151,25 +152,64 @@ const StepForm = () => {
                 value={value}
                 items={items}
                 setOpen={setOpen}
-                setValue={setValue && setSelectedGender}
+                setValue={(value) => {
+                  setValue(value);
+                  setSelectedGender(value);
+                }}
                 setItems={setItems}
-                className="bg-black"
+                mode="SIMPLE"
+                ArrowDownIconComponent={() => {
+                  return <CaretDown size={30} color="#ffffff" weight="bold" />;
+                }}
+                ArrowUpIconComponent={() => {
+                  return <CaretUp size={30} color="#ffffff" weight="bold" />;
+                }}
                 style={{
                   backgroundColor: "transparent",
+                  border: "none",
+                  borderRadius: 0,
+                  borderWidth: 2,
+                  borderLeftWidth: 0,
+                  borderTopWidth: 0,
+                  borderRightWidth: 0,
+                  borderBottomColor: "white",
+                  marginTop: 42,
+                }}
+                dropDownStyle={{
+                  backgroundColor: "transparent",
+                  borderWidth: 0,
+                }}
+                dropDownContainerStyle={{
+                  backgroundColor: "transparent",
+                  borderWidth: 0,
                 }}
                 containerStyle={{
                   backgroundColor: "transparent",
                   width: "65%",
-                  borderWidth: "none",
+                  border: "none",
+                  borderWidth: 0,
                 }}
                 textStyle={{
                   fontSize: 30,
                   color: "white",
                   backgroundColor: "transparent",
+                  fontWeight: "bold",
+                }}
+                placeholderStyle={{
+                  fontFamily: "Rubik_400Regular",
+                  fontSize: 30,
+                  fontWeight: "bold",
+                  backgroundColor: "transparent",
+                  border: "none",
                 }}
                 labelStyle={{
                   fontWeight: "bold",
                   backgroundColor: "transparent",
+                }}
+                activeLabelStyle={{
+                  color: "red",
+                  backgroundColor: "transparent",
+                  border: "none",
                 }}
               />
               {selectedGender && (
