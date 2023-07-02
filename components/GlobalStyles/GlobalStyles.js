@@ -21,8 +21,6 @@ useFonts({
   Rubik_900Black,
 });
 
-console.log(Rubik_900Black);
-
 export default StyleSheet.create({
   defaultFont: {
     fontFamily: "Rubik_900Black",

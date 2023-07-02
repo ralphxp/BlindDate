@@ -64,7 +64,7 @@ const Outh = ({ navigation }) => {
       .auth()
       .signInWithCredential(credential)
       .then((result) => {
-        console.log("Credential Result", result.user.uid);
+        /* console.log("Credential Result", result.user.uid); */
         setCode("");
         navigation.navigate("StepForm");
       })

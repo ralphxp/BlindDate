@@ -7,20 +7,21 @@ import Svg, {
   Rect,
   Circle,
 } from "react-native-svg";
-import Header from "../Header/Header";
 
 const windowWidth = Dimensions.get("screen").width;
 const windowHeight = Dimensions.get("screen").height;
 
-const LayoutWrapper = ({ children, navigation }) => {
+const Navigation = ({ children }) => {
   return (
     <View
-      className={`relative flex justify-center items-center px-5 w-[${windowWidth}px] h-[${windowHeight}px]`}
+      className={`relative flex justify-center items-center w-[${windowWidth}px] h-[${windowHeight}px]`}
     >
-      <Header />
-      {children}
+      <Image
+        source={require("../../assets/images/blinddate.png")}
+        className="w-[118px] h-[118px]"
+      />
     </View>
   );
 };
 
-export default LayoutWrapper;
+export default Navigation;
