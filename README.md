@@ -36,3 +36,5 @@ expo build:android -t apk
 
 - Hot reload error (auth/already-initialized)
 - Finish click line
+
+- Build Bottom Navigation

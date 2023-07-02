@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { View, Image } from "react-native";
+import { View, Image, Text } from "react-native";
 import { Bell } from "phosphor-react-native";
 import Svg, { Circle } from "react-native-svg";
 import LayoutWrapper from "../components/LayoutWrapper/LayoutWrapper";
@@ -17,13 +17,13 @@ const HomeScreen = ({ navigation }) => {
   /* console.log(firebaseConfig); */
   /* const app = firebase.initializeApp(firebaseConfig); */
 
-  useEffect(() => {
-    /* const auth = initializeAuth(app, {
+  /* useEffect(() => { */
+  /* const auth = initializeAuth(app, {
       persistence: getReactNativePersistence(AsyncStorage),
     }); */
-    /* console.log("Auth: ", auth); */
-    setTimeout(() => {
-      /* onAuthStateChanged(auth, (user) => {
+  /* console.log("Auth: ", auth); */
+  /* setTimeout(() => { */
+  /* onAuthStateChanged(auth, (user) => {
         if (user != null) {
           console.log("USER:", user);
           navigation.navigate("StepForm");
@@ -32,17 +32,15 @@ const HomeScreen = ({ navigation }) => {
         }
       }); 
       */
-      navigation.navigate("Dates");
-    }, 1000);
-  }, []);
+  /*  navigation.navigate("Dates");
+    }, 1000); */
+  /* navigation.navigate("Dates");
+  }, []); */
 
   return (
     <LayoutWrapper navigation={navigation}>
-      <View className="flex flex-col items-center justify-center w-full h-full">
-        <Image
-          source={require("../assets/images/blinddate_white_single.png")}
-          className="w-[225px] h-[225px]"
-        />
+      <View className="flex flex-col items-center justify-center">
+        <Text>HomeScreen</Text>
       </View>
     </LayoutWrapper>
   );

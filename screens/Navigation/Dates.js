@@ -1,4 +1,11 @@
-import { View, Text, Image, TouchableOpacity, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  Image,
+  TouchableOpacity,
+  TextInput,
+  SafeAreaView,
+} from "react-native";
 import React, { useState, useRef } from "react";
 import LayoutWrapper from "../../components/LayoutWrapper/LayoutWrapper";
 import { CaretDown, CaretUp } from "phosphor-react-native";
@@ -33,9 +40,9 @@ const Dates = () => {
   return (
     <LayoutWrapper>
       {fontsLoaded && (
-        <View className="w-full h-full items-center">
-          <Text>Dates</Text>
-        </View>
+        <SafeAreaView className="w-full h-full items-center">
+          <Text className="text-white">Dates</Text>
+        </SafeAreaView>
       )}
     </LayoutWrapper>
   );

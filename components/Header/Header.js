@@ -1,35 +1,24 @@
-import { View, Image } from "react-native";
-import React from "react";
+import { View, Image, Text } from "react-native";
+import React, { useEffect, useState } from "react";
 import { SlidersHorizontal, Bell } from "phosphor-react-native";
 import { useNavigation } from "@react-navigation/native";
 
-const Header = () => {
-  const navigation = useNavigation();
-  const navigateTo = (screen) => {
-    navigation.navigate(screen);
-  };
-
+const Header = ({ navigation }) => {
   return (
     <View
-      className={`absolute flex flex-row justify-between w-full top-0 items-center`}
+      className={`fixed top-20 flex flex-row justify-between w-full items-center`}
     >
       <Image
         source={require("../../assets/images/blinddate_orange.png")}
         className="w-[82px] h-[82px]"
       />
       <View className={`flex flex-row gap-3`}>
-        <Bell
-          size={30}
-          color="#343434"
-          weight="bold"
-          onPress={navigateTo("Notification")}
-        />
-        <SlidersHorizontal
-          size={30}
-          color="#343434"
-          weight="bold"
-          onPress={navigateTo("Settings")}
-        />
+        <Text onPress={() => navigation.navigate("Notification")}>
+          <Bell size={30} color="#343434" weight="bold" />
+        </Text>
+        <Text onPress={() => navigation.navigate("Settings")}>
+          <SlidersHorizontal size={30} color="#343434" weight="bold" />
+        </Text>
       </View>
     </View>
   );
