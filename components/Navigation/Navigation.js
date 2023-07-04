@@ -13,13 +13,21 @@ const windowHeight = Dimensions.get("screen").height;
 
 const Navigation = ({ children }) => {
   return (
-    <View
-      className={`relative flex justify-center items-center w-[${windowWidth}px] h-[${windowHeight}px]`}
-    >
-      <Image
-        source={require("../../assets/images/blinddate.png")}
-        className="w-[118px] h-[118px]"
-      />
+    <View className={`absolute flex justify-center items-center w-full`}>
+      <View className={`flex flex-row gap-3`}>
+        <Bell
+          size={30}
+          color="#343434"
+          weight="bold"
+          onPress={() => navigation.navigate("Details")}
+        />
+        <SlidersHorizontal
+          size={30}
+          color="#343434"
+          weight="bold"
+          onPress={() => navigation.navigate("Details")}
+        />
+      </View>
     </View>
   );
 };
